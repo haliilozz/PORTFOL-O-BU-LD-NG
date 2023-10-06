@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  font-size: 25px;
+  margin-top: 30px;
+  color: #ffca2c;
+  text-align: center;
+}
+.container {
+  display: block;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+#ekle-formu {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #ffca2c;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  border: 1px #ff7f7f solid;
+  border-radius: 5px;
+}
+.input-ekle {
+  width: 93%;
+  height: 40px;
+  border: 1px #ff7f7f solid;
+  border-radius: 5px;
+}
+
+#harcama-formu h2 {
+  text-align: center;
+}
+#harcama-formu {
+  padding: 20px;
+  border: 0.5px #ff7f7f solid;
+  border-radius: 15px;
+}
+.box {
+  display: flex;
+}
+p {
+  padding-top: 10px;
+}
+.first-box {
+  padding-top: 10px;
+  flex-grow: 1;
+  margin-right: 20px;
+}
+.second-box {
+  padding-top: 10px;
+  flex-grow: 1;
+}
+.box-bottom {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+label {
+  font-size: 20px;
+}
+.kaydet {
+  text-align: center;
+}
+section {
+  text-align: center;
+}
+#harcama-tablosu {
+  display: flex;
+}

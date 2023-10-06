@@ -13,32 +13,42 @@
     <main class="container">
       <div id="ekle-formu">
         <input
+          class="input-ekle"
           id="gelir-input"
           type="number"
           placeholder="Gelirinizi giriniz."
         />
-        <button id="ekle-btn btn">Ekle</button>
+        <button class="ekle-btn btn">Ekle</button>
       </div>
 
-      <div id="harcama-fonu">
-        <h3>Harcama Formu</h3>
-        <div>
-          <label class="form-label"
-            >Harcama Alanı
-            <p><input type="text" placeholder="Manav,Bakkal,Fatura" /></p
-          ></label>
+      <div id="harcama-formu">
+        <h2>Harcama Formu</h2>
+        <div class="box">
+          <div class="first-box">
+            <label class="harcama-alanı"
+              >Harcama Alanı
+              <p>
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Manav,Bakkal,Fatura"
+                /></p
+            ></label>
+          </div>
+          <div class="second-box">
+            <label class="tarih"
+              >Tarih
+              <p><input class="input" type="date" /></p
+            ></label>
+          </div>
         </div>
-        <div>
-          <label class="form-label"
-            >Tarih
-            <p><input type="date" /></p
-          ></label>
+        <div class="box-bottom">
+          <label class="harcanan-miktar">Harcanan Miktar</label>
+          <p><input class="input" type="number" placeholder="1000tl" /></p>
         </div>
-        <div>
-          <label class="form-label">Harcanan Miktar</label>
-          <input type="number" placeholder="1000tl" />
+        <div class="kaydet">
+          <button class="kaydet-btn btn">Kaydet</button>
         </div>
-        <button id="kaydet-btn btn">Kaydet</button>
       </div>
       <table id="harcama-tablosu">
         <thead>
@@ -75,7 +85,7 @@
         </tbody>
       </table>
       <section>
-        <button id="bilgileri-temizle-btn btn">Bilgileri Temizle</button>
+        <button class="bilgileri-temizle-btn btn">Bilgileri Temizle</button>
       </section>
     </main>
 
