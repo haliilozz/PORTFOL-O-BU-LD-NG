@@ -5,52 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Building</title>
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header>
       <h1>Aylık Gider Uygulaması</h1>
     </header>
     <main class="container">
-      <div id="ekle-formu">
+      <form id="ekle-formu">
         <input
           class="input-ekle"
           id="gelir-input"
           type="number"
           placeholder="Gelirinizi giriniz."
+          required
+          autofocus
         />
-        <button class="ekle-btn btn">Ekle</button>
-      </div>
-      <div id="harcama-formu">
+        <button class="ekle-btn btn" type="submit" id="ekle-btn">Ekle</button>
+      </form>
+      <form id="harcama-formu">
         <h2>Harcama Formu</h2>
         <div class="box">
           <div class="first-box">
-            <label class="harcama-alanı"
+            <label class="harcama-alanı" for="harcama-alanı"
               >Harcama Alanı
               <p>
                 <input
+                  id="harcama-alani"
                   class="input"
                   type="text"
                   placeholder="Manav,Bakkal,Fatura"
+                  required
+                  autofocus
                 /></p
             ></label>
           </div>
           <div class="second-box">
-            <label class="tarih"
+            <label class="tarih" for="tarih"
               >Tarih
-              <p><input class="input" type="date" /></p
+              <p><input id="tarih" class="input" type="date" required /></p
             ></label>
           </div>
         </div>
         <div class="box-bottom">
-          <label class="harcanan-miktar">Harcanan Miktar</label>
-          <p><input class="input" type="number" placeholder="1000tl" /></p>
+          <label class="harcanan-miktar" for="harcanan-miktar"
+            >Harcanan Miktar</label
+          >
+          <p>
+            <input
+              id="miktar"
+              class="input"
+              type="number"
+              placeholder="1000tl"
+              required
+            />
+          </p>
         </div>
         <div class="kaydet">
-          <button class="kaydet-btn btn">Kaydet</button>
+          <button class="btn" id="kaydet-btn">Kaydet</button>
         </div>
-      </div>
+      </form>
       <table id="harcama-tablosu">
-        <thead>
+        <thead id="harcama-tablosu-thead">
           <tr class="x">
             <th class="col col-1">Tarih</th>
             <th class="col col-2">Harcama Alanı</th>
@@ -59,19 +81,19 @@
           </tr>
         </thead>
         <tbody id="harcama-body">
-          <tr>
-            <th class="col-1"></th>
-            <th class="col-2"></th>
-            <th class="col-3"></th>
-            <th class="col-4"></th>
-          </tr>
+          <!-- <tr>
+            <td>${tarih}</td>
+            <td>${alan}</td>
+            <td>${miktar}</td>
+            <td><i class="fa-solid fa-trash-can"></i></td>
+        </tr>; -->
         </tbody>
       </table>
       <table id="sonuc-tablosu">
         <tbody class="text-end">
           <tr class="row">
             <th class="col">Gelirinizi:</th>
-            <td class="col" id="geliriniz">10000</td>
+            <td class="col" id="geliriniz">0</td>
           </tr>
           <tr class="row">
             <th class="col">gideriniz:</th>
@@ -79,12 +101,12 @@
           </tr>
           <tr class="row">
             <th class="col">kalan:</th>
-            <td class="col" id="kalan">10000</td>
+            <td class="col" id="kalan">0</td>
           </tr>
         </tbody>
       </table>
       <section>
-        <button class="bilgileri-temizle-btn btn">Bilgileri Temizle</button>
+        <button class="btn" id="temizle-btn">Bilgileri Temizle</button>
       </section>
     </main>
 

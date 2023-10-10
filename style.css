@@ -84,16 +84,21 @@ label {
 section {
   text-align: center;
 }
-#harcama-tablosu {
+
+#harcama-tablosu-thead {
   display: flex;
-  margin: 20px 0;
+
   justify-content: space-between;
 }
-
+#harcama-body {
+  display: block;
+  justify-content: space-between;
+}
 .col {
   padding: 10px;
   width: 100vw;
   border: 1px red solid;
+  text-align: center;
 }
 .col-1 {
   width: 25%;
@@ -101,12 +106,13 @@ section {
 .col-2 {
   width: 50%;
 }
+.col-4 {
+  width: 10%;
+}
 #sonuc-tablosu {
   margin: 20px 10px;
   display: flex;
-  justify-content: flex-end;
-}
-.text-end .col {
+  margin: 20px 390px;
   text-align: right;
-  width: 20vw;
+  width: 400px;
 }
