@@ -15,98 +15,98 @@
   </head>
   <body>
     <header>
-      <h1>Aylık Gider Uygulaması</h1>
+      <h1>Monthly Expense Application</h1>
     </header>
     <main class="container">
-      <form id="ekle-formu">
+      <form id="add-form">
         <input
-          class="input-ekle"
-          id="gelir-input"
+          class="input-add"
+          id="income-input"
           type="number"
-          placeholder="Gelirinizi giriniz."
+          placeholder="Enter your income."
           required
           autofocus
         />
-        <button class="ekle-btn btn" type="submit" id="ekle-btn">Ekle</button>
+        <button class="add-btn btn" type="submit" id="add-btn">Add</button>
       </form>
-      <form id="harcama-formu">
-        <h2>Harcama Formu</h2>
+      <form id="expense-form">
+        <h2>Expense Form</h2>
         <div class="box">
           <div class="first-box">
-            <label class="harcama-alanı" for="harcama-alanı"
-              >Harcama Alanı
+            <label class="expense-area" for="expense-area"
+              >Expense Area
               <p>
                 <input
-                  id="harcama-alani"
+                  id="expense-area"
                   class="input"
                   type="text"
-                  placeholder="Manav,Bakkal,Fatura"
+                  placeholder="Greengrocer,Store,Bill"
                   required
                   autofocus
                 /></p
             ></label>
           </div>
           <div class="second-box">
-            <label class="tarih" for="tarih"
-              >Tarih
-              <p><input id="tarih" class="input" type="date" required /></p
+            <label class="date" for="date"
+              >Date
+              <p><input id="date" class="input" type="date" required /></p
             ></label>
           </div>
         </div>
         <div class="box-bottom">
-          <label class="harcanan-miktar" for="harcanan-miktar"
-            >Harcanan Miktar</label
+          <label class="expense-amount" for="expense-amount"
+            >Expense Amount</label
           >
           <p>
             <input
-              id="miktar"
+              id="amount"
               class="input"
               type="number"
-              placeholder="1000tl"
+              placeholder="1000 $"
               required
             />
           </p>
         </div>
-        <div class="kaydet">
-          <button class="btn" id="kaydet-btn">Kaydet</button>
+        <div class="save">
+          <button class="btn" id="save-btn">Save</button>
         </div>
       </form>
-      <table id="harcama-tablosu">
-        <thead id="harcama-tablosu-thead">
+      <table id="expense-table">
+        <thead id="expense-table-thead">
           <tr class="x">
-            <th class="col col-1">Tarih</th>
-            <th class="col col-2">Harcama Alanı</th>
-            <th class="col col-3">Miktar</th>
-            <th class="col col-4">İşlem</th>
+            <th class="col col-1">Date</th>
+            <th class="col col-2">Expense Area</th>
+            <th class="col col-3">Amount</th>
+            <th class="col col-4">Process</th>
           </tr>
         </thead>
-        <tbody id="harcama-body">
+        <tbody id="expense-body">
           <!-- <tr>
-            <td>${tarih}</td>
+            <td>${date}</td>
             <td>${alan}</td>
-            <td>${miktar}</td>
+            <td>${amount}</td>
             <td><i class="fa-solid fa-trash-can"></i></td>
         </tr>; -->
         </tbody>
       </table>
-      <table id="sonuc-tablosu">
+      <table id="result-table">
         <tbody class="text-end">
           <tr class="row">
-            <th class="col">Gelirinizi:</th>
-            <td class="col" id="geliriniz">0</td>
+            <th class="col">Your Income:</th>
+            <td class="col" id="your-income">0</td>
           </tr>
           <tr class="row">
-            <th class="col">gideriniz:</th>
-            <td class="col" id="gideriniz">0</td>
+            <th class="col">Your Expense:</th>
+            <td class="col" id="your-expense">0</td>
           </tr>
           <tr class="row">
-            <th class="col">kalan:</th>
-            <td class="col" id="kalan">0</td>
+            <th class="col">Rest:</th>
+            <td class="col" id="rest">0</td>
           </tr>
         </tbody>
       </table>
       <section>
-        <button class="btn" id="temizle-btn">Bilgileri Temizle</button>
+        <button class="btn" id="clean-btn">Clear Information</button>
       </section>
     </main>
 

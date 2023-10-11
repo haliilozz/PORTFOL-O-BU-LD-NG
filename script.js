@@ -1,107 +1,106 @@
 "use strict";
 //? selector
-const ekleFormu = document.getElementById("ekle-formu");
-const gelirInput = document.getElementById("gelir-input");
-const ekleBtn = document.getElementById("ekle-btn");
-//?sonuc tablosu
-const gelirinizTd = document.getElementById("geliriniz");
-const giderinizTd = document.getElementById("gideriniz");
-const kalanTd = document.getElementById("kalan");
+const addForm = document.getElementById("add-form");
+const incomeInput = document.getElementById("income-input");
+const addBtn = document.getElementById("add-btn");
+//?result table
+const yourIncomeTd = document.getElementById("your-income");
+const yourExpenseTd = document.getElementById("your-expense");
+const restTd = document.getElementById("rest");
 
-//?harcama formu
-const harcamaFormu = document.getElementById("harcama-formu");
-const harcamaAlaniInput = document.getElementById("harcama-alani");
-const tarihInput = document.getElementById("tarih");
-const miktarInput = document.getElementById("miktar");
+//?expense form
+const expenseForm = document.getElementById("expense-form");
+const expenseAreaInput = document.getElementById("expense-area");
+const dateInput = document.getElementById("date");
+const amountInput = document.getElementById("amount");
 
-//?harcama tablosu
-const harcamaBody = document.getElementById("harcama-body");
-const temizleBtn = document.getElementById("temizle-btn");
+//?expense table
+const expenseBody = document.getElementById("expense-body");
+const cleanBtn = document.getElementById("clean-btn");
 //?variables
-let gelirler = "";
-let harcamaListesi = [];
+let incomes = "";
+let expenseList = [];
 //?events
-
-ekleFormu.addEventListener("submit", (e) => {
-  gelirler = Number(gelirler) + Number(gelirInput.value);
+addForm.addEventListener("submit", (e) => {
+  incomes = Number(incomes) + Number(incomeInput.value);
   e.preventDefault();
-  ekleFormu.reset();
-  localStorage.setItem("gelirler", gelirler);
-  hesaplaVeGuncelle();
+  addForm.reset();
+  localStorage.setItem("incomes", incomes);
+  calculateAndUpdate();
 });
 
 window.addEventListener("load", () => {
-  gelirler = Number(localStorage.getItem("gelirler"));
+  incomes = Number(localStorage.getItem("incomes"));
 
-  harcamaListesi = JSON.parse(localStorage.getItem("harcamalar")) || [];
-  harcamaListesi.forEach((harcama) => harcamayiDomaYaz(harcama));
-  console.log(harcamaListesi);
+  expenseList = JSON.parse(localStorage.getItem("expenses")) || [];
+  expenseList.forEach((expense) => writeExpensesToDOM(expense));
+  console.log(expenseList);
 
-  tarihInput.valueAsDate = new Date();
-  hesaplaVeGuncelle();
+  dateInput.valueAsDate = new Date();
+  calculateAndUpdate();
 });
 
-harcamaFormu.addEventListener("submit", (e) => {
+expenseForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const yeniHarcama = {
+  const newExpense = {
     id: new Date().getTime(),
-    tarih: tarihInput.value,
-    alan: harcamaAlaniInput.value,
-    miktar: miktarInput.value,
+    date: dateInput.value,
+    area: expenseAreaInput.value,
+    amount: amountInput.value,
   };
 
-  harcamaListesi.push(yeniHarcama);
+  expenseList.push(newExpense);
 
-  localStorage.setItem("harcamalar", JSON.stringify(harcamaListesi));
-  harcamayiDomaYaz(yeniHarcama);
-  hesaplaVeGuncelle();
-  harcamaFormu.reset();
-  tarihInput.valueAsDate = new Date();
-  console.log(yeniHarcama);
+  localStorage.setItem("expenses", JSON.stringify(expenseList));
+  writeExpensesToDOM(newExpense);
+  calculateAndUpdate();
+  expenseForm.reset();
+  dateInput.valueAsDate = new Date();
+  console.log(newExpense);
 });
 
 //?function
-const hesaplaVeGuncelle = () => {
-  const giderler = harcamaListesi.reduce(
-    (toplam, harcama) => toplam + Number(harcama.miktar),
+const calculateAndUpdate = () => {
+  const expenses = expenseList.reduce(
+    (total, expense) => total + Number(expense.amount),
     0
   );
-  gelirinizTd.innerText = gelirler;
-  giderinizTd.innerText = giderler;
-  kalanTd.innerText = gelirler - giderler;
+  yourIncomeTd.innerText = incomes;
+  yourExpenseTd.innerText = expenses;
+  restTd.innerText = incomes - expenses;
 };
-const harcamayiDomaYaz = ({ id, miktar, tarih, alan }) => {
-  harcamaBody.innerHTML += `
+const writeExpensesToDOM = ({ id, amount, date, area }) => {
+  expenseBody.innerHTML += `
 <tr>
-    <td class="col col-1">${tarih}</td>
-    <td class="col col-2">${alan}</td>
-    <td class="col col-3">${miktar}</td>
+    <td class="col col-1">${date}</td>
+    <td class="col col-2">${area}</td>
+    <td class="col col-3">${amount}</td>
     <td class="col col-4" ><i id=${id} class="fa-solid fa-trash-can"></i></td>
 </tr>
 `;
 };
 
-harcamaBody.addEventListener("click", (e) => {
+expenseBody.addEventListener("click", (e) => {
   if (e.target.classList.contains("fa-trash-can")) {
     e.target.parentElement.parentElement.remove();
     const id = e.target.id;
     console.log(id);
 
-    harcamaListesi = harcamaListesi.filter((harcama) => harcama.id != id);
-    console.log(harcamaListesi);
+    expenseList = expenseList.filter((expense) => expense.id != id);
+    console.log(expenseList);
 
-    localStorage.setItem("harcamalar", JSON.stringify(harcamaListesi));
+    localStorage.setItem("expense", JSON.stringify(expenseList));
   }
-  hesaplaVeGuncelle();
+  calculateAndUpdate();
 });
 
-temizleBtn.addEventListener("click", () => {
-  if (confirm("silmek istedigine emin misin?")) {
-    harcamaListesi = [];
-    gelirler = 0;
+cleanBtn.addEventListener("click", () => {
+  if (confirm("Are you sure you want to delete?")) {
+    expenseList = [];
+    incomes = 0;
     localStorage.clear();
-    harcamaBody.innerHTML = "";
-    hesaplaVeGuncelle();
+    expenseBody.innerHTML = "";
+    calculateAndUpdate();
   }
 });

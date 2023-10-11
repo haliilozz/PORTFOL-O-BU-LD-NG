@@ -16,7 +16,7 @@ header {
   margin-right: auto;
   margin-left: auto;
 }
-#ekle-formu {
+#add-form {
   display: flex;
   text-align: center;
   margin: 20px 10px;
@@ -31,7 +31,7 @@ header {
   border-radius: 6px;
   border: none;
 }
-.ekle-btn {
+.add-btn {
   margin-left: 10px;
 }
 .input {
@@ -40,17 +40,17 @@ header {
   border: 1px #ff7f7f solid;
   border-radius: 5px;
 }
-.input-ekle {
+.input-add {
   width: 93%;
   height: 40px;
   border: 1px #ff7f7f solid;
   border-radius: 5px;
 }
 
-#harcama-formu h2 {
+#expense-form h2 {
   text-align: center;
 }
-#harcama-formu {
+#expense-form {
   padding: 20px;
   border: 0.5px #ff7f7f solid;
   border-radius: 15px;
@@ -78,19 +78,19 @@ p {
 label {
   font-size: 20px;
 }
-.kaydet {
+.save {
   text-align: center;
 }
 section {
   text-align: center;
 }
 
-#harcama-tablosu-thead {
+#expense-table-thead {
   display: flex;
 
   justify-content: space-between;
 }
-#harcama-body {
+#expense-body {
   display: block;
   justify-content: space-between;
 }
@@ -109,7 +109,7 @@ section {
 .col-4 {
   width: 10%;
 }
-#sonuc-tablosu {
+#result-table {
   margin: 20px 10px;
   display: flex;
   margin: 20px 390px;
